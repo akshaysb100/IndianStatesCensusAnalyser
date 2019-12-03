@@ -26,4 +26,15 @@ public class StateTestCases {
         }
     }
 
+    @Test
+    public void check_StateCensusDataFile_WhenIncorrectFileType_TrowException() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(29,stateAnalyser.openCSVBuilder("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.type"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
+        }
+    }
 }

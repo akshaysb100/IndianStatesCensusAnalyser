@@ -27,7 +27,7 @@ public class StateAnalyser {
                 CSVStateCensus csvUser = csvUserIterator.next();
             }
         } catch (NoSuchFileException e){
-            throw new StateException(StateException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path ", e);
+            throw new StateException(StateException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ", e);
 
         }catch (IOException e) {
             e.printStackTrace();
