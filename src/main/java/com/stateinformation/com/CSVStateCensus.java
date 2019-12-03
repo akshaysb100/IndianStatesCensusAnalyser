@@ -11,10 +11,10 @@ public class CSVStateCensus implements Comparable {
     private String population;
 
     @CsvBindByName(column = "AreaInSqKm")
-    private  int areaInSqKm;
+    private  String areaInSqKm;
 
     @CsvBindByName(column = "DensityPerSqKm")
-    private int densityPerSqKm;
+    private String densityPerSqKm;
 
     public CSVStateCensus() {
     }
@@ -35,32 +35,21 @@ public class CSVStateCensus implements Comparable {
         this.population = population;
     }
 
-    public int getAreaInSqKm() {
+    public String getAreaInSqKm() {
         return areaInSqKm;
     }
 
-    public void setAreaInSqKm(int areaInSqKm) {
+    public void setAreaInSqKm(String areaInSqKm) {
         this.areaInSqKm = areaInSqKm;
     }
 
-    public int getDensityPerSqKm() {
+    public String getDensityPerSqKm() {
         return densityPerSqKm;
     }
 
-    public void setDensityPerSqKm(int densityPerSqKm) {
+    public void setDensityPerSqKm(String densityPerSqKm) {
         this.densityPerSqKm = densityPerSqKm;
     }
-
-    @Override
-    public String toString() {
-        return "CSVStateCensus{" +
-                "stateName='" + stateName + '\'' +
-                ", population='" + population + '\'' +
-                ", areaInSqKm=" + areaInSqKm +
-                ", densityPerSqKm=" + densityPerSqKm +
-                '}';
-    }
-
 
     @Override
     public int compareTo(Object o) {
