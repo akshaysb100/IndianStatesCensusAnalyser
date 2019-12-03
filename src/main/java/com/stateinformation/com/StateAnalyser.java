@@ -17,6 +17,7 @@ public class StateAnalyser  {
     private String SAMPLE_JSON_FILE_PATH = "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/csvtojsonsotfile";
     private String SAMPLE_JSON_FILE_BASED_ON_POPULATION= "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/csvfilebaseonpopulation.json";
     private String SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm="/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/sortcsvfilebasedondensitypersqkm.json";
+    private String SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM="/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/sortcsvfilebasedonareaInSqKm.json";
     List<CSVStateCensus> csvStateCensuses = new ArrayList<>();
     public int openCSVBuilder(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws StateException {
         int count = 0;
@@ -67,6 +68,15 @@ public class StateAnalyser  {
         Comparator<CSVStateCensus> c = (s1, s2) -> Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
         csvStateCensuses.sort(c);
         writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm);
+        return count;
+    }
+
+    public int sortThisListBasedOnAreaInSqKm(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws IOException, StateException {
+
+        int count = openCSVBuilder(STATE_CENSUS_DATA_CSV_FILE_PATH);
+        Comparator<CSVStateCensus> c = (s1, s2) -> Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
+        csvStateCensuses.sort(c);
+        writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM);
         return count;
     }
 

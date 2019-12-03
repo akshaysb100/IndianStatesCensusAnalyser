@@ -161,4 +161,46 @@ public class StateTestCases {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void sortSCVFile_UsingAreaInSqKmOfState_AlphabeticalOrder() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void sortSCVFile_UsingAreaInSqKmOfState_WhenIncorrectFileType_TrowException() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void sortSCVFile_UsingAreaInSqKmOfState_WhenIncorrectFileName_TrowException() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(true,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

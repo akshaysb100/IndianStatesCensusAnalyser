@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statetestcases.com.StateTestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:37:32" hostname="admin1-LIVA-Z2V" time="0.035">
+<testsuite name="com.statetestcases.com.StateTestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:48:47" hostname="admin1-LIVA-Z2V" time="0.011">
   <properties/>
-  <testcase name="sortSCVFile_UsingDensityPerSqKmOfState_WhenIncorrectFileName_TrowException" classname="com.statetestcases.com.StateTestCases" time="0.035"/>
+  <testcase name="sortSCVFile_UsingAreaInSqKmOfState_WhenIncorrectFileName_TrowException" classname="com.statetestcases.com.StateTestCases" time="0.011"/>
   <system-out><![CDATA[Exception is : please Enter proper file path or type 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
