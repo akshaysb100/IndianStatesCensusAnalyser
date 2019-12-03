@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statetestcases.com.StateTestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T12:12:08" hostname="admin1-LIVA-Z2V" time="0.243">
+<testsuite name="com.statetestcases.com.StateTestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:09:57" hostname="admin1-LIVA-Z2V" time="0.217">
   <properties/>
-  <testcase name="sortcsvFile_JsonFile" classname="com.statetestcases.com.StateTestCases" time="0.243"/>
+  <testcase name="sortSCVFile_UsingPopulationOfState_AlphabeticalOrder" classname="com.statetestcases.com.StateTestCases" time="0.217"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
