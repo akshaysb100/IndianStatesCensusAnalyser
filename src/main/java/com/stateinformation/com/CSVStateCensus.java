@@ -2,18 +2,18 @@ package com.stateinformation.com;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class CSVStateCensus {
+public class CSVStateCensus implements Comparable {
 
-    @CsvBindByName(column = "StateName",required = true)
+    @CsvBindByName(column = "StateName")
     private String stateName  ;
 
-    @CsvBindByName(column = "Population",required = true)
+    @CsvBindByName(column = "Population")
     private String population;
 
-    @CsvBindByName(column = "AreaInSqKm" ,required = true)
+    @CsvBindByName(column = "AreaInSqKm")
     private  int areaInSqKm;
 
-    @CsvBindByName(column = "DensityPerSqKm",required = true)
+    @CsvBindByName(column = "DensityPerSqKm")
     private int densityPerSqKm;
 
     public CSVStateCensus() {
@@ -59,5 +59,11 @@ public class CSVStateCensus {
                 ", areaInSqKm=" + areaInSqKm +
                 ", densityPerSqKm=" + densityPerSqKm +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        return this.getStateName().compareTo(((CSVStateCensus)o).getStateName());
     }
 }

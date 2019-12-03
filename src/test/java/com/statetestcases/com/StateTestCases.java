@@ -5,6 +5,8 @@ import com.stateinformation.com.StateException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class StateTestCases {
 
     @Test
@@ -61,4 +63,20 @@ public class StateTestCases {
             Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
         }
     }
+
+    @Test
+    public void sortcsvFile_JsonFile() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(29,stateAnalyser.SortCSvFile("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
