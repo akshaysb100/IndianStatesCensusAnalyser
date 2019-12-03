@@ -29,7 +29,7 @@ public class StateAnalyser {
         } catch (NoSuchFileException e){
             throw new StateException(StateException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path or type ", e);
         } catch (RuntimeException e) {
-            throw new StateException(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, "File Delimiter is incorrect", e);
+            throw new StateException(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, "File Delimiter is incorrect or header is incorrect", e);
         }catch (IOException e) {
             e.printStackTrace();
         }
