@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 public class StateAnalyser {
 
-    public int openCSVBuilder(String STATE_CENSUS_DATA_CSV_FILE_PATH) {
+    public int openCSVBuilder(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws StateException {
         int count = 0;
         try {
             Reader reader = Files.newBufferedReader(Paths.get(STATE_CENSUS_DATA_CSV_FILE_PATH));
@@ -26,7 +26,10 @@ public class StateAnalyser {
                 count++;
                 CSVStateCensus csvUser = csvUserIterator.next();
             }
-        } catch (IOException e) {
+        } catch (NoSuchFileException e){
+            throw new StateException(StateException.ExceptionType.NO_SUCH_FILE, "please Enter proper file path ", e);
+
+        }catch (IOException e) {
             e.printStackTrace();
         }
         return count;
