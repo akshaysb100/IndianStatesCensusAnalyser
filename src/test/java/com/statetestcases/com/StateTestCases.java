@@ -37,4 +37,16 @@ public class StateTestCases {
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
         }
     }
+
+    @Test
+    public void check_StateCensusDataFile_WhenDelimiterIncorrect_ThrowException() {
+
+        StateAnalyser stateAnalyser = new StateAnalyser();
+        try {
+            Assert.assertEquals(29,stateAnalyser.openCSVBuilder("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+        } catch (StateException e) {
+            System.out.println("Exception is : "+ e.getMessage());
+            Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
+        }
+    }
 }

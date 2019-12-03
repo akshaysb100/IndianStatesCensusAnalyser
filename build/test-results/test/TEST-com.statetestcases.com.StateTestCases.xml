@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statetestcases.com.StateTestCases" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-12-03T10:50:03" hostname="admin1-LIVA-Z2V" time="0.188">
+<testsuite name="com.statetestcases.com.StateTestCases" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T10:59:29" hostname="admin1-LIVA-Z2V" time="0.176">
   <properties/>
-  <testcase name="check_StateCensusDataFile_WhenIncorrectFileType_TrowException" classname="com.statetestcases.com.StateTestCases" time="0.016"/>
-  <testcase name="check_StateCensusDataFile_WhenIncorrectFileName_ThrowException" classname="com.statetestcases.com.StateTestCases" time="0.002"/>
-  <testcase name="check_StateCensusDataFile_ReturnHowMuchRecord" classname="com.statetestcases.com.StateTestCases" time="0.165"/>
-  <system-out><![CDATA[Exception is : please Enter proper file path or type 
-Exception is : please Enter proper file path or type 
+  <testcase name="check_StateCensusDataFile_WhenDelimiterIncorrect_ThrowException" classname="com.statetestcases.com.StateTestCases" time="0.176"/>
+  <system-out><![CDATA[Exception is : File Delimiter is incorrect
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
