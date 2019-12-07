@@ -9,6 +9,12 @@ import java.io.IOException;
 
 public class StateTestCases {
 
+    String stateCensusDataCSVFile="/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv";
+    String SAMPLE_JSON_FILE_PATH = "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/csvtojsonsotfile";
+    String SAMPLE_JSON_FILE_BASED_ON_POPULATION= "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/csvfilebaseonpopulation.json";
+    String SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm="/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/sortcsvfilebasedondensitypersqkm.json";
+    String SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM="/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/sortcsvfilebasedonareaInSqKm.json";
+
     @Test
     public void check_StateCensusDataFile_ReturnHowMuchRecord() throws StateException {
 
@@ -69,7 +75,7 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.SortCSvFile("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(stateCensusDataCSVFile,"stateName",SAMPLE_JSON_FILE_PATH));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
@@ -83,7 +89,7 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnPopulation("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(stateCensusDataCSVFile,"population",SAMPLE_JSON_FILE_BASED_ON_POPULATION));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
@@ -97,7 +103,8 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnPopulation("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt",
+                    "population",SAMPLE_JSON_FILE_BASED_ON_POPULATION));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
@@ -111,7 +118,8 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnPopulation("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv",
+                    "population",SAMPLE_JSON_FILE_BASED_ON_POPULATION));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
@@ -125,7 +133,7 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnDensityPerSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(stateCensusDataCSVFile,"densityPerSqKm",SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
@@ -139,7 +147,9 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnDensityPerSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(
+                    "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt",
+                    "densityPerSqKm",SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
@@ -153,7 +163,9 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(true,stateAnalyser.sortThisListBasedOnDensityPerSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(
+                    "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv",
+                    "densityPerSqKm",SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
@@ -167,7 +179,7 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(stateCensusDataCSVFile,"areaInSqKm",SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.SOME_OTHER_FILE_ERROR, e.type);
@@ -181,7 +193,9 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(29,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(
+                    "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusData.txt",
+                    "areaInSqKm",SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
@@ -195,7 +209,9 @@ public class StateTestCases {
 
         StateAnalyser stateAnalyser = new StateAnalyser();
         try {
-            Assert.assertEquals(true,stateAnalyser.sortThisListBasedOnAreaInSqKm("/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv"));
+            Assert.assertEquals(true,stateAnalyser.sortDetails(
+                    "/home/user/IdeaProjects/IndianStatesCensusAnalysers/src/main/java/com/stateinformation/com/StateCensusDat.csv",
+                    "areaInSqKm",SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM));
         } catch (StateException e) {
             System.out.println("Exception is : "+ e.getMessage());
             Assert.assertEquals(StateException.ExceptionType.NO_SUCH_FILE, e.type);
