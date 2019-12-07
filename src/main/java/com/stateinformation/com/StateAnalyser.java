@@ -42,42 +42,6 @@ public class StateAnalyser<a> {
         return count;
     }
 
-//    public int SortCSvFile(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws IOException, StateException {
-//
-//        int count = openCSVBuilder(STATE_CENSUS_DATA_CSV_FILE_PATH);
-//        Comparator<CSVStateCensus> c = (s1, s2) -> s1.getStateName().compareTo(s2.getStateName());
-//        csvStateCensuses.sort(c);
-//        writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_PATH);
-//        return count;
-//    }
-//
-//    public int sortThisListBasedOnPopulation(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws IOException, StateException {
-//
-//        int count = openCSVBuilder(STATE_CENSUS_DATA_CSV_FILE_PATH);
-//        Comparator<CSVStateCensus> c = (s1, s2) -> Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
-//        csvStateCensuses.sort(c);
-//        writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_POPULATION);
-//        return count;
-//    }
-//
-//    public int sortThisListBasedOnDensityPerSqKm(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws IOException, StateException {
-//
-//        int count = openCSVBuilder(STATE_CENSUS_DATA_CSV_FILE_PATH);
-//        Comparator<CSVStateCensus> c = (s1, s2) -> Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
-//        csvStateCensuses.sort(c);
-//        writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_DensityPerSqKm);
-//        return count;
-//    }
-//
-//    public int sortThisListBasedOnAreaInSqKm(String STATE_CENSUS_DATA_CSV_FILE_PATH) throws IOException, StateException {
-//
-//        int count = openCSVBuilder(STATE_CENSUS_DATA_CSV_FILE_PATH);
-//        Comparator<CSVStateCensus> c = (s1, s2) -> Integer.parseInt(s2.getAreaInSqKm()) - Integer.parseInt(s1.getAreaInSqKm());
-//        csvStateCensuses.sort(c);
-//        writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_AREA_IN_SQ_KM);
-//        return count;
-//    }
-
     public void writeDataCSVToJson(List<CSVStateCensus> list,String filePath) throws IOException {
 
         Gson gson = new Gson();
@@ -114,6 +78,5 @@ public class StateAnalyser<a> {
         writeDataCSVToJson(csvStateCensuses,SAMPLE_JSON_FILE_BASED_ON_FIELD);
         return true;
     }
-
 }
 
